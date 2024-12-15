@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Billing Page</title>
+    <link rel="stylesheet" href="billing.css">
+</head>
+<body>
+<th:block th:insert="Header.html"></th:block>
+<div class="container">
+    <h2><strong>CONFIRM STATUS</strong></h2>
+    <form action="/generate" method="post" th:object="${billing}">
+
+        <input type="hidden" name="b_id" th:value="${billing.b_id}">
+
+<!--        <div class="form-group row">-->
+<!--            <div style="flex: 1;">-->
+<!--                <label for="firstName"><strong>First Name:</strong></label>-->
+<!--                <input type="text" id="firstName" name="fname" th:value="*{fname}" required readonly>-->
+<!--            </div>-->
+<!--            <div style="flex: 1; margin-left: 10px;">-->
+<!--                <label for="lastName"><strong>Last Name:</strong></label>-->
+<!--                <input type="text" id="lastName" name="lname" th:value="*{lname}" required readonly>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="form-group row">-->
+<!--            <div style="flex: 1;">-->
+<!--                <label for="phone"><strong>Phone:</strong></label>-->
+<!--                <input type="text" id="phone" name="phone" th:value="*{phone}" required readonly>-->
+<!--            </div>-->
+<!--            <div style="flex: 1; margin-left: 10px;">-->
+<!--                <label for="city"><strong>City:</strong></label>-->
+<!--                <input type="text" id="city" name="city" th:value="*{city}" required readonly>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="form-group">-->
+<!--            <label for="email"><strong>Email:</strong></label>-->
+<!--            <input type="email" id="email" name="email" th:value="*{email}" required readonly>-->
+<!--        </div>-->
+<!--        <div class="form-group">-->
+<!--            <label for="country"><strong>Country:</strong></label>-->
+<!--            <input type="text" id="country" name="country" th:value="*{country}" required readonly>-->
+<!--        </div>-->
+
+        <div class="form-group row">
+            <div style="flex: 1;">
+                <label for="pack_name"><strong>Package Name:</strong></label>
+                <input type="text" id="pack_name" name="pack_name" th:value="*{pack_name}" required  readonly>
+            </div>
+            <div style="flex: 1; margin-left: 10px;">
+                <label for="pack_price"><strong>Package Price:</strong></label>
+                <input type="text" id="pack_price" name="pack_price" th:value="*{pack_price}" required  readonly>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="status"><strong>Status :</strong></label>
+            <select id="status" name="status" required>
+                <option value="">Select</option>
+                <option value="Paid">Paid</option>
+                <option value="Unpaid">Unpaid</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Generate Bill">
+        </div>
+    </form>
+</div>
+<th:block th:insert="Footer.html"></th:block>
+</body>
+</html>

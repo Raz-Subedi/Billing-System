@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Client</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #c9d9e8;
+            background-image: url('/b.jpg'); /* Add your image path here */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+            display: flex;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+            box-sizing: border-box;
+            text-align: center;
+            position: relative;
+            margin: auto;
+        }
+        h1 {
+            margin-bottom: 1.5rem;
+            color: #00796b;
+            font-size: 2rem;
+            position: relative;
+        }
+        h1::after {
+            content: '';
+            width: 50px;
+            height: 4px;
+            background-color: #00796b;
+            display: block;
+            margin: 0.5rem auto 0;
+            border-radius: 2px;
+        }
+        .form-group {
+            margin-bottom: 1rem;
+            text-align: left;
+        }
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #004d40;
+            font-weight: bold;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #b2dfdb;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        input[type="text"]:focus {
+            border-color: #00796b;
+            outline: none;
+        }
+        button {
+            width: 100%;
+            padding: 0.75rem;
+            background-color: #00796b;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #004d40;
+        }
+        .icon {
+            position: absolute;
+            top: -30px;
+            left: calc(50% - 30px);
+            background-color: #00796b;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .icon img {
+            width: 30px;
+            height: 30px;
+        }
+    </style>
+</head>
+<body>
+<th:block th:insert="Header.html"></th:block>
+<div class="container">
+    <div class="icon">
+        <img src="search.png" alt="Search Icon">
+    </div>
+    <h1>Search Client</h1>
+    <form action="/searchClient" method="Post">
+        <div class="form-group">
+            <p style="color: red"><strong>[[${failed}]]</strong></p>
+            <label for="firstName">First Name:</label>
+            <input type="text" id="firstName" name="fname" required>
+        </div>
+        <div class="form-group">
+            <label for="lastName">Last Name:</label>
+            <input type="text" id="lastName" name="lname" required>
+        </div>
+        <div class="form-group">
+            <button type="submit">Search</button>
+        </div>
+    </form>
+</div>
+<th:block th:insert="Footer.html"></th:block>
+</body>
+</html>

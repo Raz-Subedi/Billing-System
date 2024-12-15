@@ -1,0 +1,32 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Package Form</title>
+    <link rel="stylesheet" href="packageform.css">
+</head>
+<body>
+
+<!-- Include the header -->
+<th:block th:insert="Header.html"></th:block>
+
+<div class="package-form">
+    <div class="container">
+        <h2>Add New Package</h2>
+        <form action="/package" method="post">
+            <p style="color: #1b5e20">[[${success}]]</p>
+            <input type="text" class="input-field" id="packageName" name="pname" placeholder="Enter Package Name" pattern="^[A-Z][a-zA-Z\s]*$" title="Only Text with First letter Capital" required>
+            <input type="number" class="input-field" id="packagePrice" name="pprice" placeholder="Enter Package Price" min="1" required>
+            <button type="submit" class="btn">Add Package</button>
+        </form>
+    </div>
+</div>
+
+<!-- Include the footer -->
+<th:block th:insert="Footer.html"></th:block>
+
+</body>
+</html>
+

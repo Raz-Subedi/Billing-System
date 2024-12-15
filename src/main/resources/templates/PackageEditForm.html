@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Package Edit Form</title>
+    <link rel="stylesheet" href="p_editform.css">
+</head>
+<body>
+
+<!-- Include the header -->
+<th:block th:insert="Header.html"></th:block>
+
+<div class="package-form">
+    <div class="container">
+        <h2>Edit Package</h2>
+        <form action="/pack/update" method="post" th:object="${pModel}">
+            <p style="color: #1b5e20">[[${success}]]</p>
+            <input type="text" class="input-field" id="packageName" th:field="*{pname}" pattern="^[A-Z][a-z]*$" title="Only Text with First letter Capital" required>
+            <input type="number" class="input-field" id="packagePrice" th:field="*{pprice}" min="1" required>
+            <button type="submit" class="btn">Update</button>
+            <input type="hidden"  th:field="*{id}">
+        </form>
+    </div>
+</div>
+
+<!-- Include the footer -->
+<th:block th:insert="Footer.html"></th:block>
+
+</body>
+</html>
+
+
+
+
+

@@ -1,0 +1,67 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #c9d9e8;
+}
+.container {
+    max-width: 500px;
+    margin: auto;
+    margin-top: 15px;
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+}
+.form-group {
+    margin-bottom: 20px;
+}
+.form-group label {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 6px;
+    display: block;
+}
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group select {
+    width: calc(100% - 24px);
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background-color: #f8f8f8;
+    font-size: 16px;
+    transition: border-color 0.3s;
+    box-sizing: border-box;
+}
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #4caf50;
+}
+.form-group input[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 14px 20px;
+    cursor: pointer;
+    border-radius: 6px;
+    width: 100%;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+.form-group input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Flexbox for two inputs in a row */
+.form-group.row {
+    display: flex;
+    justify-content: space-between;
+}

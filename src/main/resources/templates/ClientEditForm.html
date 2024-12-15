@@ -1,0 +1,94 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Edit Form</title>
+    <link rel="stylesheet" href="c_editform.css">
+</head>
+<body>
+<th:block th:insert="Header.html"></th:block>
+<div class="container">
+    <h2><strong>Client Edit Form</strong></h2>
+    <form action="/client/update" method="post" th:object="${cModel}">
+        <div class="form-group row">
+            <div style="flex: 1;">
+                <label for="firstName">First Name</label>
+                <input type="text" id="firstName" th:field="*{fname}"  pattern="^[A-Z][a-z]*$" title="Enter only Text with First letter Capital" required>
+            </div>
+            <div style="flex: 1; margin-left: 10px;">
+                <label for="lastName">Last Name</label>
+                <input type="text" id="lastName" th:field="*{lname}" pattern="^[A-Z][a-z]*$" title="Enter only Text with First letter Capital" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="gender">Gender</label>
+            <select id="gender" th:field="*{gender}" required>
+                <option value="">Select</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+            </select>
+        </div>
+        <div class="form-group row">
+            <div style="flex: 1;">
+                <label for="phone">Phone</label>
+                <input type="text" id="phone" th:field="*{phone}" pattern="9[0-9]{9}" title="Phone number must be 10 digits long and start with 9" required>
+            </div>
+            <div style="flex: 1; margin-left: 10px;">
+                <label for="city">City</label>
+                <input type="text" id="city" th:field="*{address.city}" pattern="^[A-Z][a-z]*$" title="Enter only Text with First letter Capital" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" th:field="*{email}" required>
+        </div>
+        <div class="form-group">
+            <label>Province</label>
+            <select  th:field="*{address.state}" required>
+                <option value="">Select</option>
+                <option value="Province-1">Province 1</option>
+                <option value="Madhesh Pradesh">Madhesh</option>
+                <option value="Bagmati">Bagmati</option>
+                <option value="Gandaki">Gandaki</option>
+                <option value="Lumbini">Lumbini</option>
+                <option value="Karnali">Karnali</option>
+                <option value="Sudur Pashchim">Sudur Pashchim</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="country">Country</label>
+            <input type="text" id="country" th:field="*{address.country}" pattern="^[A-Z][a-z]*$" title="Enter a valid Country Name  with First letter Capital" required>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Update">
+        </div>
+        <input type="hidden" th:field="*{cli_id}">
+        <input type="hidden" th:field="*{address.adr_id}">
+    </form>
+</div>
+<th:block th:insert="Footer.html"></th:block>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
