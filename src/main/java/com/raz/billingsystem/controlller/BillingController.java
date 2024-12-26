@@ -218,7 +218,7 @@ public class BillingController {
         List<Billing> billingHistory = billService.getBillingHistoryByDateRange(fromDate, toDate);
 
         model.addAttribute("billingHistory", billingHistory);
-        return "HistoryPage"; // replace with your actual view name
+        return "HistoryPage";
     }
 
     public static boolean checkSession(HttpSession httpSession){
